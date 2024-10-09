@@ -1,15 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     background-color: #f4f4f4;
 }
 
+header {
+    display: flex;
+    align-items: center; /* Alinear verticalmente la imagen y el texto */
+    justify-content: center; /* Centrar el contenido del encabezado */
+    margin: 20px 0;
+}
+
+.icono-titulo {
+    width: 70px; /* Ajustar el tamaño de la imagen */
+    height: auto; /* Mantener la proporción */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
 h1 {
+    margin: 0;
     text-align: center;
+    margin-top: 30px;
+    margin-bottom:20px;
 }
 
 form {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -54,12 +70,12 @@ fieldset {
 }
 
 #jugadores-container input[type="checkbox"] {
-    margin: 0; /* Eliminar margen */
-    margin-right: 0; /* Sin margen derecho */
+    margin: 0;
+    margin-right: 0;
 }
 
 label {
-    margin-left: 0; /* Sin margen a la izquierda */
+    margin-left: 0;
 }
 
 button {
@@ -80,7 +96,7 @@ button:hover {
 
 #resultado {
     margin-top: 20px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
