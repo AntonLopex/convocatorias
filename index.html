@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocatoria de Fútbol</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="my_script.js" defer></script>
+</head>
+<body>
+    <h1>Convocatoria de Partido</h1>
+    <form id="convocatoria-form">
+        <label for="fecha">Fecha (dd/mm/aaaa):</label>
+        <input type="text" id="fecha" placeholder="dd/mm/aaaa" required>
+        
+        <label for="campo">Nombre del Campo:</label>
+        <input type="text" id="campo" required>
+        
+        <label for="hora-reunión">Hora de Reunión:</label>
+        <input type="text" id="hora-reunión" placeholder="hh:mm" required>
+        
+        <label for="hora-partido">Hora del Partido:</label>
+        <input type="text" id="hora-partido" placeholder="hh:mm" required>
+        
+        <label for="rival">Nombre del Rival:</label>
+        <input type="text" id="rival" required>
+        
+        <fieldset>
+            <legend>Selecciona a los jugadores:</legend>
+            <div id="jugadores-container"></div>
+            <button type="button" id="select-all">Seleccionar Todo</button>
+        </fieldset>
+        
+        <button type="submit">Generar Convocatoria</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+  
+</body>
+</html>
