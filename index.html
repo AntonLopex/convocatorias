@@ -11,19 +11,20 @@
 <body>
     <h1>
         <img src="img/escudo-1676.png" alt="Icono" class="icono-titulo">
-        Convocatoria de Partido</h1>
+        Convocatoria de Partido
+    </h1>
     <form id="convocatoria-form">
-        <label for="fecha">Fecha (dd/mm/aaaa):</label>
-        <input type="text" id="fecha" placeholder="dd/mm/aaaa" required>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" required>
         
         <label for="campo">Nombre del Campo:</label>
         <input type="text" id="campo" required>
         
-        <label for="hora-reunión">Hora de Reunión:</label>
-        <input type="text" id="hora-reunión" placeholder="hh:mm" required>
+        <label for="hora-reunión">Hora de Convocatoria:</label>
+        <input type="time" id="hora-reunión" required>
         
         <label for="hora-partido">Hora del Partido:</label>
-        <input type="text" id="hora-partido" placeholder="hh:mm" required>
+        <input type="time" id="hora-partido" required>
         
         <label for="rival">Nombre del Rival:</label>
         <input type="text" id="rival" required>
@@ -37,8 +38,9 @@
         <button type="submit">Generar Convocatoria</button>
     </form>
     
-    <div id="resultado"></div>
-
-  
+    <div id="resultado">
+        <button id="copy-button" style="display: none;">Copiar</button>
+        <pre id="resultado-texto"></pre>
+    </div>
 </body>
 </html>

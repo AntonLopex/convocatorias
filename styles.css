@@ -6,22 +6,22 @@ body {
 
 header {
     display: flex;
-    align-items: center; /* Alinear verticalmente la imagen y el texto */
-    justify-content: center; /* Centrar el contenido del encabezado */
+    align-items: center;
+    justify-content: center;
     margin: 20px 0;
 }
 
 .icono-titulo {
-    width: 70px; /* Ajustar el tamaño de la imagen */
-    height: auto; /* Mantener la proporción */
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
 }
 
 h1 {
     margin: 0;
     text-align: center;
     margin-top: 30px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 form {
@@ -74,10 +74,6 @@ fieldset {
     margin-right: 0;
 }
 
-label {
-    margin-left: 0;
-}
-
 button {
     background-color: #4CAF50;
     color: white;
@@ -100,9 +96,25 @@ button:hover {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    white-space: pre-line;
+    position: relative;
     max-width: 600px;
     margin: 20px auto;
+    text-align: center;
+}
+
+#copy-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: inline-block;
+}
+
+#copy-button:hover {
+    background-color: #45a049;
 }
 
 @media (max-width: 600px) {

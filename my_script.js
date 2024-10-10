@@ -59,6 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
 ${seleccionados}
         `;
         
-        document.getElementById('resultado').textContent = resultado;
+        document.getElementById('resultado-texto').textContent = resultado;
+        document.getElementById('copy-button').style.display = 'block';
+    });
+
+    // Copiar al portapapeles
+    const copyButton = document.getElementById('copy-button');
+    copyButton.addEventListener('click', () => {
+        const resultadoTexto = document.getElementById('resultado-texto').textContent;
+        navigator.clipboard.writeText(resultadoTexto).then(() => {
+            alert('Convocatoria copiada al portapapeles');
+        }).catch(err => {
+            alert('Error al copiar: ' + err);
+        });
     });
 });
