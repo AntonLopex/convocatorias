@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Formatear el resultado con saltos de línea
         const resultado = `
+BENXAMÍN B ❗
 📆 ${fecha}
 🏟️ ${campo}
 ⏰ ${horaReunión} - ${horaPartido}
