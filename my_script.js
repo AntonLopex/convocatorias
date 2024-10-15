@@ -38,7 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         
-        const fecha = document.getElementById('fecha').value;
+        let fecha = document.getElementById('fecha').value;
+        if (/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+            const [year, month, day] = fecha.split('-');
+            fecha = `${day}/${month}/${year}`;
+        }        
         const campo = document.getElementById('campo').value;
         const horaReunión = document.getElementById('hora-reunión').value;
         const horaPartido = document.getElementById('hora-partido').value;
