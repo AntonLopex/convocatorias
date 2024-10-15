@@ -104,7 +104,7 @@ button:hover {
 }
 
 #copy-button {
-    background-color: #4CAF50;
+    background-color: #006f9b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -115,7 +115,8 @@ button:hover {
 }
 
 #copy-button:hover {
-    background-color: #45a049;
+    background-color: #adadad;
+    color: black;
 }
 
 @media (max-width: 600px) {

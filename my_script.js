@@ -73,7 +73,7 @@ ${seleccionados}
     copyButton.addEventListener('click', () => {
         const resultadoTexto = document.getElementById('resultado-texto').textContent;
         navigator.clipboard.writeText(resultadoTexto).then(() => {
-            alert('Convocatoria copiada al portapapeles');
+            //alert('Convocatoria copiada al portapapeles');
         }).catch(err => {
             alert('Error al copiar: ' + err);
         });
