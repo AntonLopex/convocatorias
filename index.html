@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convocatoria de Fútbol</title>
+    <title>Convocatorias</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="my_script.js" defer></script>
     <link rel="shortcut icon" href="img/escudo-1676.png" />
@@ -11,31 +11,31 @@
 <body>
     <h1>
         <img src="img/escudo-1676.png" alt="Icono" class="icono-titulo">
-        Convocatoria de Partido
+        Convocatoria do Partido
     </h1>
     <form id="convocatoria-form">
-        <label for="fecha">Fecha:</label>
+        <label for="fecha">Data:</label>
         <input type="date" id="fecha" required>
         
-        <label for="campo">Nombre del Campo:</label>
+        <label for="campo">Nome do Campo:</label>
         <input type="text" id="campo" required>
         
-        <label for="hora-reunión">Hora de Convocatoria:</label>
+        <label for="hora-reunión">Hora da Convocatoria:</label>
         <input type="time" id="hora-reunión" required>
         
-        <label for="hora-partido">Hora del Partido:</label>
+        <label for="hora-partido">Hora do Partido:</label>
         <input type="time" id="hora-partido" required>
         
-        <label for="rival">Nombre del Rival:</label>
+        <label for="rival">Nome do Rival:</label>
         <input type="text" id="rival" required>
         
         <fieldset>
-            <legend>Selecciona a los jugadores:</legend>
+            <legend>Selecciona os xogadores:</legend>
             <div id="jugadores-container"></div>
             <button type="button" id="select-all">Seleccionar Todo</button>
         </fieldset>
         
-        <button type="submit">Generar Convocatoria</button>
+        <button type="submit">Xerar Convocatoria</button>
     </form>
     
     <div id="resultado">
