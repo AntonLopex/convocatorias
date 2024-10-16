@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 BENXAMÍN B ❗
 📆 ${fecha}
 🏟️ ${campo}
-⏰ ${horaReunión} - ${horaPartido}
+⏰ Convocatoria:${horaReunión} - Partido ás:${horaPartido}
 ⚽️ vs ${rival}
 
 ${seleccionados}
