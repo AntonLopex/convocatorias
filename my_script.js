@@ -50,8 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Obtener jugadores seleccionados
         const seleccionados = jugadores
-            .filter(jugador => document.getElementById(jugador).checked)
-            .join('\n');
+  .filter(jugador => document.getElementById(jugador).checked)
+  .map((jugador, index) => `${index + 1}. ${jugador}`)
+  .join('\n');
+
 
         // Formatear el resultado con saltos de línea
         const resultado = `
