@@ -33,6 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mostrar u ocultar "Ubicación do Campo" según el checkbox "fora de casa"
+    const foraDeCasaCheckbox = document.getElementById('fora-de-casa');
+    const ubicacionContainer = document.getElementById('ubicacion-container');
+
+    foraDeCasaCheckbox.addEventListener('change', () => {
+        if (foraDeCasaCheckbox.checked) {
+            ubicacionContainer.style.display = 'block';
+        } else {
+            ubicacionContainer.style.display = 'none';
+        }
+    });
+
     // Procesar el formulario
     const form = document.getElementById('convocatoria-form');
     form.addEventListener('submit', (event) => {
@@ -50,20 +62,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Obtener jugadores seleccionados
         const seleccionados = jugadores
-  .filter(jugador => document.getElementById(jugador).checked)
-  .map((jugador, index) => `${index + 1}. ${jugador}`)
-  .join('\n');
+            .filter(jugador => document.getElementById(jugador).checked)
+            .map((jugador, index) => `${index + 1}. ${jugador}`)
+            .join('\n');
 
+        // Obtener la ubicación si "fora de casa" está marcado
+        let ubicacion = '';
+        if (foraDeCasaCheckbox.checked) {
+            ubicacion = document.getElementById('ubicacion').value.trim();
+            if (ubicacion) {
+                ubicacion = `📍 Ubicación do campo: ${ubicacion}\n`;
+            }
+        }
 
         // Formatear el resultado con saltos de línea
         const resultado = `
-BENXAMÍN B ❗
+**BENXAMÍN B** ❗
 📆 ${fecha}
 🏟️ ${campo}
-⏰ Convocatoria:${horaReunión} - Partido ás:${horaPartido}
+⏰ Convocatoria: ${horaReunión} - Partido ás: ${horaPartido}
 ⚽️ vs ${rival}
 
 ${seleccionados}
+${ubicacion}
         `;
         
         document.getElementById('resultado-texto').textContent = resultado;
