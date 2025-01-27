@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const jugadores = [
-        "Alvaro", "Lucas Aller", "Izan Fernández", "Lois Golán", 
-        "Marta Buján", "Xan Sieira", "Uxía Sieira", "Dani Hernández", 
-        "Adán Gudea", "Adan Vázquez", "Darío Lema", "María Quintás", 
-        "Nuno Castaño"
+        "Alvaro", "Lucas Aller", "Lois Golán", 
+        "Marta Buján", "Xan Sieira","Adan Vázquez", "Dani Hernández", 
+        "Adán Gudea", "Uxía Sieira", "María Quintás", "Darío Lema", "Izan Fernández"
     ]
 
     const jugadoresContainer = document.getElementById('jugadores-container')
