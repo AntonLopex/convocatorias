@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const jugadores = [
-        "Alvaro", "Lucas Aller", "Lois Golán", 
-        "Marta Buján", "Xan Sieira","Adan Vázquez", "Dani Hernández", 
-        "Adán Gudea", "Uxía Sieira", "María Quintás", "Darío Lema", "Izan Fernández"
+        "Alvaro Pérez (P)","David Barros (P)", "Lucas Aller (P)", "Lois Golán", 
+        "Martín Mujico", "Adrián Díaz", "Dani Hernández", 
+        "Adán Viña", "Adrián Resioy", "Mauro Rodriguez", "Darío Lema", "Lois Cea"
     ]
 
     const jugadoresContainer = document.getElementById('jugadores-container')
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Formatear el resultado con saltos de línea
         const resultado = `
-*BENXAMÍN B* ❗
+*ALEVÍN B* ❗
 📆 ${fecha}
 🏟️ ${campo}
 ⏰ Convocatoria: ${horaReunión} - Partido ás: ${horaPartido}
