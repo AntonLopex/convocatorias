@@ -110,13 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const rival = document.getElementById('rival').value
 
         // Obtener jugadores seleccionados usando la lista actual (alevín o infantil)
-        const seleccionados = currentJugadores
-            .filter(jugador => {
-                const el = document.getElementById(jugador)
-                return el && el.checked
-            })
-            .map((jugador, index) => `${index + 1}. ${jugador}`)
-            .join('\n')
+        // Queremos que los jugadores con '(P)' aparezcan primeros manteniendo el orden relativo.
+        const selectedKeepers = []
+        const selectedOthers = []
+        currentJugadores.forEach(jugador => {
+            const el = document.getElementById(jugador)
+            if (el && el.checked) {
+                if (jugador.includes('(P)')) selectedKeepers.push(jugador)
+                else selectedOthers.push(jugador)
+            }
+        })
+        const combinedSelected = [...selectedKeepers, ...selectedOthers]
+        const seleccionados = combinedSelected.map((jugador, index) => `${index + 1}. ${jugador}`).join('\n')
 
         // Obtener la ubicación si "fora de casa" está marcado
         let ubicacion = ''
@@ -127,9 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Formatear el resultado con saltos de línea
-        const resultado = `
-*ALEVÍN B* ❗
+    // Cabecera dinámica según categoría seleccionada
+    const categoriaValue = (categoriaSelect && categoriaSelect.value) ? categoriaSelect.value : 'alevin'
+    const categoriaLabel = categoriaValue === 'infantil' ? 'INFANTIL B' : 'ALEVÍN B'
+
+    // Formatear el resultado con saltos de línea
+    const resultado = `
+*${categoriaLabel}* ❗
 📆 ${fecha}
 🏟️ ${campo}
 ⏰ Convocatoria: ${horaReunión} - Partido ás: ${horaPartido}
@@ -137,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ${seleccionados}
 ${ubicacion}
-        `
+    `
         
         document.getElementById('resultado-texto').textContent = resultado
         document.getElementById('copy-button').style.display = 'block'
