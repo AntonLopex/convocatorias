@@ -2,27 +2,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const jugadores = [
         "Alvaro Pérez (P)","David Barros (P)", "Lucas Aller (P)", "Lois Golán", 
         "Martín Mujico", "Adrián Díaz", "Dani Hernández", 
-        "Adán Viña", "Adrián Resioy", "Mauro Rodriguez", "Darío Lema", "Lois Cea"
+        "Adán Viña", "Adrián Resioy", "Mauro Rodriguez", "Darío Lema", "Lois Cea", "Martina Baca",
+        "Natalia Boga", "Sira Balmaseda", "Adián Fernández", "Lucas Rodríguez"
+    ]
+
+    const jugadoresInf = [
+        "Teo Sisto Martiz",
+        "Tristán Devesa",
+        "Rodrigo Rodriguez (P)",
+        "Andrés Pájaro",
+        "Daniel Mosquera",
+        "Anxo Rodríguez Vila",
+        "Lucas Folgoso",
+        "Lionel Sanchez",
+        "Mateo Ferreiro (P)",
+        "Juan Carlos Botana",
+        "Mateo Bergamini (P)",
+        "Martin Arizaga",
+        "Tomás de Moura",
+        "Erik Sabel",
+        "David Costa",
+        "Rodrigo Otero",
+        "Edgar Casal",
+        "Brais Otero",
+        "Diego Rodri.",
+        "Leo Oreiro",
+        "Aldara Liste",
+        "Alba Martinez",
+        "Carmen Quintas",
+        "Daniel González"
     ]
 
     const jugadoresContainer = document.getElementById('jugadores-container')
 
-    // Generar los checkboxes de los jugadores
-    jugadores.forEach(jugador => {
-        const div = document.createElement('div')
-        const checkbox = document.createElement('input')
-        checkbox.type = 'checkbox'
-        checkbox.id = jugador
-        checkbox.value = jugador
+    // currentJugadores mantiene la lista que se está mostrando (alevín por defecto)
+    let currentJugadores = jugadores
 
-        const label = document.createElement('label')
-        label.htmlFor = jugador
-        label.textContent = jugador
+    // Función para renderizar checkboxes a partir de un array de nombres
+    function renderJugadores(lista) {
+        jugadoresContainer.innerHTML = ''
+        lista.forEach(jugador => {
+            const div = document.createElement('div')
+            const checkbox = document.createElement('input')
+            checkbox.type = 'checkbox'
+            checkbox.id = jugador
+            checkbox.value = jugador
 
-        div.appendChild(checkbox)
-        div.appendChild(label)
-        jugadoresContainer.appendChild(div)
-    })
+            const label = document.createElement('label')
+            label.htmlFor = jugador
+            label.textContent = jugador
+
+            div.appendChild(checkbox)
+            div.appendChild(label)
+            jugadoresContainer.appendChild(div)
+        })
+    }
+    // No renderizamos la lista al cargar: solo mostramos el select inicialmente.
+    // La lista se renderizará cuando el usuario escoja una categoría.
+    const playersSection = document.getElementById('players-section')
+    const categoriaSelect = document.getElementById('categoria-select')
+    if (categoriaSelect) {
+        categoriaSelect.addEventListener('change', () => {
+            if (categoriaSelect.value === 'infantil') {
+                currentJugadores = jugadoresInf
+            } else {
+                currentJugadores = jugadores
+            }
+            // Renderizar y mostrar la sección de jugadores
+            renderJugadores(currentJugadores)
+            if (playersSection) playersSection.style.display = 'block'
+        })
+    }
 
     // Botón "Seleccionar Todo"
     const selectAllButton = document.getElementById('select-all')
@@ -59,9 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const horaPartido = document.getElementById('hora-partido').value
         const rival = document.getElementById('rival').value
 
-        // Obtener jugadores seleccionados
-        const seleccionados = jugadores
-            .filter(jugador => document.getElementById(jugador).checked)
+        // Obtener jugadores seleccionados usando la lista actual (alevín o infantil)
+        const seleccionados = currentJugadores
+            .filter(jugador => {
+                const el = document.getElementById(jugador)
+                return el && el.checked
+            })
             .map((jugador, index) => `${index + 1}. ${jugador}`)
             .join('\n')
 
