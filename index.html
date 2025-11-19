@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convocatorias</title>
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="my_script.js" defer></script>
     <link rel="shortcut icon" href="img/escudo-1676.png" />
@@ -32,10 +34,14 @@
         <fieldset>
             <legend>Selecciona os xogadores:</legend>
             <label for="categoria-select">Categoría:</label>
-            <select id="categoria-select">
-                <option value="alevin" selected>Alevín</option>
-                <option value="infantil">Infantil</option>
-            </select>
+            <div class="select-wrapper">
+                <select id="categoria-select">
+                    <option value="" disabled selected>Escolla un equipo</option>
+                    <option value="alevin">Alevín</option>
+                    <option value="infantil">Infantil</option>
+                </select>
+                <span class="select-arrow" aria-hidden="true"></span>
+            </div>
 
             <!-- Sección de jugadores: oculta inicialmente, se muestra tras elegir categoría -->
             <div id="players-section" style="display: none;">
@@ -44,9 +50,11 @@
             </div>
         </fieldset>
         
-        <!-- Nuevo checkbox "fora de casa" -->
-        <label for="fora-de-casa">Fora de Casa:</label>
-        <input type="checkbox" id="fora-de-casa">
+        <!-- Nuevo checkbox "fora de casa" (estilo tarjeta similar a xogadores) -->
+        <div class="faux-checkbox">
+            <input type="checkbox" id="fora-de-casa">
+            <label for="fora-de-casa">Fora de Casa</label>
+        </div>
         
         <!-- Nuevo campo para "Ubicación do campo", inicialmente oculto -->
         <div id="ubicacion-container" style="display: none;">

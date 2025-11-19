@@ -1,7 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
-    background-color: #ffffff;
+    background: linear-gradient(180deg, #f6fbff 0%, #ffffff 60%);
+    color: #0b2b3a;
 }
 
 header {
@@ -20,17 +21,21 @@ header {
 h1 {
     margin: 0;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 28px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: #024a63;
 }
 
 form {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.95));
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(2, 74, 99, 0.08);
+    max-width: 760px;
+    margin: 12px auto 24px auto;
+    border: 1px solid rgba(2,74,99,0.06);
 }
 
 label, fieldset {
@@ -40,27 +45,48 @@ label, fieldset {
 
 input, textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    padding: 12px 14px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid #c1d8e4;
     box-sizing: border-box;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(2,74,99,0.03) inset;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 80ms ease;
+    font-size: 0.98rem;
+    color: #033244;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #8aa6b6;
+    opacity: 1;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #007aa8;
+    box-shadow: 0 10px 30px rgba(0,122,168,0.12);
+    transform: translateY(-1px);
+}
+
+/* Ajustes para inputs de tipo time/date para mantener consistencia */
+input[type="time"], input[type="date"] {
+    padding: 10px 12px;
 }
 
 fieldset {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
+    border: none;
+    padding: 8px 4px 12px 4px;
+    margin-bottom: 14px;
+    text-align: left;
 }
 
+/* Jugadores: grid responsive */
 #jugadores-container {
-    /* Mostrar los jugadores en grid de 3 columnas */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
     align-items: start;
 }
 
@@ -86,13 +112,15 @@ fieldset {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 10px;
-    border-radius: 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
     justify-content: flex-start;
-    background: transparent;
+    background: #fff;
     cursor: pointer;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.08s ease;
     user-select: none;
+    border: 1px solid #c1d8e4;
+    box-shadow: 0 4px 12px rgba(2,74,99,0.04);
 }
 
 /* Hover para dar feedback */
@@ -102,8 +130,10 @@ fieldset {
 
 /* Cuando el checkbox está marcado, estilizamos la etiqueta (azul de ejemplo) */
 #jugadores-container input[type="checkbox"]:checked + label {
-    background: #006f9b;
+    background: linear-gradient(180deg, #007aa8, #005f86);
     color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,111,155,0.18);
 }
 
 #jugadores-container input[type="checkbox"] {
@@ -112,79 +142,226 @@ fieldset {
 }
 
 button {
-    background-color: #006f9b;
-    color: white;
-    padding: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    background: linear-gradient(180deg,#007aa8 0%, #006f9b 100%);
+    color: #ffffff;
+    padding: 12px 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 8px 20px rgba(2,74,99,0.08);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
 button:hover {
-    background-color: #adadad;
-    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(2,74,99,0.12);
+    background: linear-gradient(180deg,#008fbf 0%, #007aa8 100%);
 }
 
 /* Estilos para el select de categoría */
+/* Select moderno */
 #categoria-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 100%;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #cfd8dc;
-    background: linear-gradient(180deg, #ffffff, #f7fbff);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #c1d8e4;
+    background: linear-gradient(180deg, #ffffff, #f0fbff);
+    box-shadow: 0 6px 18px rgba(2,74,99,0.04);
     font-size: 1rem;
     margin-bottom: 12px;
     cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.25) 50%), linear-gradient(135deg, rgba(0,0,0,0.25) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Placeholder text color (option disabled can't be styled broadly, but this helps inputs look right) */
+#categoria-select option[value=""] {
+    color: #8aa6b6;
+}
+
+/* Styling options (limited support across browsers) */
+#categoria-select option {
+    background: #ffffff;
+    color: #033244;
+    padding: 6px 10px;
+}
+#categoria-select option:hover {
+    background: #eaf6fb;
 }
 
 /* Asegurar buen espaciado de la sección de jugadores */
+/* players section spacing */
 #players-section {
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
-#resultado {
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+/* Wrapper to position a nicer custom arrow */
+.select-wrapper {
     position: relative;
-    max-width: 600px;
+}
+.select-wrapper select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 46px; /* room for arrow */
+}
+.select-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+/* CSS arrow (double-line) */
+.select-arrow:before, .select-arrow:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+.select-arrow:before {
+    top: 2px;
+    border-bottom: 6px solid rgba(2,74,99,0.18);
+}
+.select-arrow:after {
+    bottom: 2px;
+    border-top: 6px solid rgba(2,74,99,0.18);
+}
+
+/* Hover & focus states */
+.select-wrapper:hover select {
+    border-color: rgba(2,74,99,0.16);
+}
+.select-wrapper select:focus + .select-arrow:before,
+.select-wrapper select:focus + .select-arrow:after {
+    border-bottom-color: #004e6b;
+    border-top-color: #004e6b;
+}
+
+/* Resultado box */
+#resultado {
+    margin-top: 18px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(2,74,99,0.06);
+    position: relative;
+    max-width: 760px;
     margin: 20px auto;
+    text-align: left;
+}
+
+/* Faux checkbox used for 'fora-de-casa' to match player cards */
+.faux-checkbox {
+    margin-top: 12px;
+}
+.faux-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.faux-checkbox label {
+    display: block;
+    width: 100%;
     text-align: center;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.08s ease;
+    border: 1px solid #c1d8e4;
+    box-shadow: 0 4px 12px rgba(2,74,99,0.04);
+    color: #033244;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+.faux-checkbox label:hover {
+    background: rgba(0,111,155,0.06);
+}
+.faux-checkbox input[type="checkbox"]:checked + label {
+    background: linear-gradient(180deg, #007aa8, #005f86);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,111,155,0.18);
+}
+
+/* Ensure textarea respects its container and is responsive */
+#ubicacion-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+#ubicacion-container textarea {
+    width: 100%;
+    min-height: 90px;
+    max-width: 100%;
+    resize: vertical;
+}
+
+/* Make select visually align with inputs (match shadows/borders) */
+.select-wrapper select {
+    border: 1px solid #c1d8e4;
+    box-shadow: 0 2px 6px rgba(2,74,99,0.03) inset;
+    background: #fff;
+}
+.select-wrapper select:focus {
+    outline: none;
+    border-color: #007aa8;
+    box-shadow: 0 10px 30px rgba(0,122,168,0.12);
 }
 
 #copy-button {
-    background-color: #006f9b;
-    color: white;
+    /* Match main button styles but smaller */
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: linear-gradient(180deg,#007aa8 0%, #006f9b 100%);
+    color: #ffffff;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    padding: 8px 12px;
     cursor: pointer;
     margin: 10px auto;
     display: inline-block;
+    box-shadow: 0 6px 16px rgba(2,74,99,0.08);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
 #copy-button:hover {
-    background-color: #adadad;
-    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(2,74,99,0.12);
+    background: linear-gradient(180deg,#008fbf 0%, #007aa8 100%);
 }
 
 @media (max-width: 600px) {
     form, #resultado {
-        padding: 15px;
+        padding: 14px;
     }
     /* En pantallas pequeñas mostrar 1 columna */
     #jugadores-container {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
+    #jugadores-container label { padding: 12px; }
 }
 
 /* Intermedio: tablets/pequeños portátiles */
@@ -192,4 +369,10 @@ button:hover {
     #jugadores-container {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* Escritorio amplio: limitar ancho del body contenido */
+@media (min-width: 1100px) {
+    form { max-width: 900px; }
+    #resultado { max-width: 900px; }
 }
