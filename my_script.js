@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const jugadores = [
         "Alvaro Pérez (P)","David Barros (P)", "Lucas Aller (P)", "Lois Golán", 
         "Martín Mujico", "Adrián Díaz", "Dani Hernández", 
-        "Adán Viña", "Adrián Resioy", "Mauro Rodriguez", "Darío Lema", "Lois Cea", "Martina Baca",
-        "Natalia Boga", "Sira Balmaseda", "Adián Fernández", "Lucas Rodríguez"
+        "Adán Viña", "Adrián Resioy", "Mauro Rodríguez", "Darío Lema", "Lois Cea", "Martina Baca",
+        "Natalia Boga", "Sira Balmaseda", "Adrián Fernández", "Lucas Rodríguez"
     ]
 
     const jugadoresInf = [
-        "Teo Sisto Martiz",
+        "Teo Sisto",
         "Tristán Devesa",
         "Rodrigo Rodriguez (P)",
         "Andrés Pájaro",
         "Daniel Mosquera",
-        "Anxo Rodríguez Vila",
+        "Anxo Rodríguez",
         "Lucas Folgoso",
         "Lionel Sanchez",
         "Mateo Ferreiro (P)",
@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "Rodrigo Otero",
         "Edgar Casal",
         "Brais Otero",
-        "Diego Rodri.",
+        "Diego Rodríguez",
         "Leo Oreiro",
         "Aldara Liste",
-        "Alba Martinez",
-        "Carmen Quintas",
+        "Alba Martínez",
+        "Carmen Quintás",
         "Daniel González"
     ]
 

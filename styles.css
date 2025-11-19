@@ -65,13 +65,45 @@ fieldset {
 }
 
 #jugadores-container div {
+    /* Mantener estructura, pero visuales se aplican a la etiqueta */
+    display: block;
+}
+
+/* Ocultar visualmente el checkbox pero mantenerlo accesible */
+#jugadores-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* Estilo de las etiquetas que actúan como botón/elemento seleccionable */
+#jugadores-container label {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px;
-    border-radius: 6px;
+    padding: 8px 10px;
+    border-radius: 8px;
     justify-content: flex-start;
-    background: rgba(0,0,0,0.03);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    user-select: none;
+}
+
+/* Hover para dar feedback */
+#jugadores-container label:hover {
+    background: rgba(0, 111, 155, 0.06);
+}
+
+/* Cuando el checkbox está marcado, estilizamos la etiqueta (azul de ejemplo) */
+#jugadores-container input[type="checkbox"]:checked + label {
+    background: #006f9b;
+    color: #fff;
 }
 
 #jugadores-container input[type="checkbox"] {
@@ -148,5 +180,16 @@ button:hover {
 @media (max-width: 600px) {
     form, #resultado {
         padding: 15px;
+    }
+    /* En pantallas pequeñas mostrar 1 columna */
+    #jugadores-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Intermedio: tablets/pequeños portátiles */
+@media (max-width: 900px) and (min-width: 601px) {
+    #jugadores-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
